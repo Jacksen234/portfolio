@@ -5,8 +5,155 @@
 body {
   font-size: 1.125rem;
   margin: 0;
-  color: #0F141E;
+  color: #0f141e;
   background: #fff;
+  height: 3000px;
+  font-family: "proxima-nova", Montserrat, sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #0f141e;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/*Header*/
+header {
+  padding: 1.5em 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-header {
+  height: 2rem;
+}
+
+.hamburger-container {
+  margin-left: auto;
+  z-index: 100;
+}
+
+.ham-label {
+  display: block;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+.ham-line {
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #0f141e;
+  border-radius: 20px;
+  display: block;
+  transition: transform 0.5s, opacity 0.5s, background 0.3s ease 0.4s;
+  transform-origin: center;
+}
+
+.ham-line:nth-child(1) {
+  top: 0px;
+}
+
+.ham-line:nth-child(2) {
+  top: 12px;
+}
+
+.ham-line:nth-child(3) {
+  top: 24px;
+}
+
+.menu-open:nth-child(1) {
+  transform: translateY(12px) rotate(-45deg);
+}
+
+.menu-open:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-open:nth-child(3) {
+  transform: translateY(-12px) rotate(45deg);
+}
+
+/*Overlay Menu*/
+.overlay {
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  background: #0f141e;
+  color: #fff;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  overflow-x: hidden;
+}
+
+.menu-content {
+  text-align: center;
+  position: relative;
+}
+.menu-content .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3em 0 3em 0;
+  cursor: pointer;
+}
+.menu-content .nav-item img, .menu-content .nav-item svg {
+  height: 50px;
+  fill: #fff;
+  opacity: 0.4;
+  transition: all 200ms ease;
+}
+.menu-content .nav-item p {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  margin-bottom: 0;
+  margin-top: 0.75em;
+}
+
+.nav-item:hover svg,
+.nav-item:active svg {
+  opacity: 0.9;
+}
+
+.overlay-width {
+  width: 75%;
+}
+
+@media (min-width: 800px) {
+  .menu-content .nav-item svg {
+    height: 70px;
+  }
+  .menu-content .nav-item p {
+    font-size: 1.5rem;
+  }
+
+  .overlay-width {
+    width: 25%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

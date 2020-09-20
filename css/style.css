@@ -3,11 +3,10 @@
 }
 
 body {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   margin: 0;
   color: #0f141e;
   background: #fff;
-  height: 3000px;
   font-family: "proxima-nova", Montserrat, sans-serif;
 }
 
@@ -21,9 +20,55 @@ a {
   color: #0f141e;
 }
 
+h1, h2, p {
+  margin-top: 0;
+}
+
 .wrapper {
   width: 90%;
   margin: 0 auto;
+}
+
+.smallText {
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.6);
+  letter-spacing: 5px;
+  font-weight: bold;
+}
+
+.bigTitle {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 0.5em;
+}
+
+.light-text {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.btn {
+  background: none;
+  border-radius: 200px;
+  border: 3px solid #0f141e;
+  color: #0f141e;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 3px;
+  padding: 0.75em 2em;
+  font-weight: 900;
+  font-family: "proxima-nova", Montserrat, sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover,
+.btn:active {
+  color: #fff;
+  background: #0f141e;
+}
+
+.flex {
+  display: flex;
 }
 
 /*Header*/
@@ -32,7 +77,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .logo-header {
@@ -40,8 +85,14 @@ header {
 }
 
 .hamburger-container {
+  cursor: pointer;
   margin-left: auto;
   z-index: 100;
+  position: fixed;
+  right: 2%;
+}
+.hamburger-container * {
+  pointer-events: none;
 }
 
 .ham-label {
@@ -143,9 +194,143 @@ header {
   width: 75%;
 }
 
+/*title page*/
+.title-section {
+  display: flex;
+  min-height: 90vh;
+  flex-direction: column;
+}
+.title-section > * {
+  flex: 1;
+  margin-bottom: 2em;
+}
+
+.title-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-bottom: 2em;
+}
+
+.title-deco {
+  order: -1;
+  /*height: 250px;*/
+  width: 100%;
+  position: relative;
+}
+.title-deco img {
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.15;
+}
+.title-deco .metaContainer {
+  width: 100%;
+  height: 100%;
+}
+.title-deco .metaContainer #underlineSvg {
+  opacity: 0.1;
+}
+.title-deco .metaContainer svg {
+  height: 100%;
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+.title-deco .metaContainer svg path, .title-deco .metaContainer svg line, .title-deco .metaContainer svg polyline {
+  stroke: #0f141e;
+  stroke-width: 10px;
+}
+.title-deco .metaContainer svg path {
+  fill: transparent;
+}
+
+.scrolldown {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  bottom: 0;
+  cursor: pointer;
+}
+.scrolldown svg {
+  max-height: 24px;
+}
+.scrolldown p {
+  margin-bottom: 0.75em;
+}
+
+.vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.content-section {
+  margin-top: 3em;
+}
+
+.project-tiles {
+  flex-direction: column;
+}
+
+.project-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10em;
+  position: relative;
+}
+
+.project-group:first-child {
+  margin-top: 10em;
+}
+
+.project-tile {
+  background: #0f141e;
+  width: 100%;
+  height: 500px;
+  margin-bottom: 3em;
+}
+
+.project-group-title {
+  position: absolute;
+  top: -6rem;
+  left: 0;
+  font-weight: 900;
+  font-size: 6rem;
+  margin: 0;
+  opacity: 0.05;
+}
+
+/*
+.tech-row{
+  display: flex;
+  flex-direction: column;
+  :first-child{
+    margin-top: 5em;
+  }
+}
+
+ .row-title{
+   letter-spacing: 10px;
+   color: $text-light;
+ }
+
+*/
 @media (min-width: 800px) {
+  body {
+    font-size: 1.125rem;
+  }
+
+  .bigTitle {
+    font-size: 3.4rem;
+  }
+
   .menu-content .nav-item svg {
-    height: 70px;
+    height: 60px;
   }
   .menu-content .nav-item p {
     font-size: 1.5rem;
@@ -153,6 +338,67 @@ header {
 
   .overlay-width {
     width: 25%;
+  }
+
+  .title-section {
+    flex-direction: row;
+  }
+
+  .title-content {
+    padding-bottom: 8em;
+  }
+
+  .title-deco {
+    order: 1;
+  }
+  .title-deco .metaContainer {
+    display: block;
+  }
+  .title-deco .metaContainer svg {
+    max-width: 75%;
+  }
+
+  .scrolldown {
+    display: flex;
+  }
+
+  .project-group {
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 13em;
+    margin-bottom: 0;
+  }
+
+  .project-group:last-child {
+    margin-bottom: 10em;
+  }
+
+  .project-tile {
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+
+  .project-group-title {
+    font-size: 18rem;
+    top: -15rem;
+  }
+
+  .project-group-three {
+    display: grid;
+    grid-template: 50% 50%/50% 50%;
+    column-gap: 2em;
+    padding: 3em;
+  }
+  .project-group-three .project-tile {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .project-group-three .project-group-title {
+    top: -12rem;
+  }
+
+  .grid-stretch {
+    grid-column: 1/3;
   }
 }
 

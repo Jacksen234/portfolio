@@ -19,6 +19,7 @@ document.addEventListener('click', (ev) => {
     if (openBool && !$nav.is(ev.target) && $nav.has(ev.target).length === 0){
         if (!$ham.is(ev.target) && $ham.has(ev.target).length === 0){
             closeOverlay();
+            openBool = !openBool;
         }
     }
 });

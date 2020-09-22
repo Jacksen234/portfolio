@@ -11,6 +11,7 @@ body{
   color: $text-main;
   background: $bg-main;
   font-family: "proxima-nova", Montserrat, sans-serif;
+  overflow-x: hidden;
 }
 img{
   display: block;
@@ -26,6 +27,13 @@ h1, h2, p{
 .wrapper{
   width: 90%;
   margin: 0 auto;
+}
+.err{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .smallText{
   font-size: .875rem;
@@ -59,6 +67,9 @@ h1, h2, p{
 .btn:active{
   color: $bg-main;
   background: $text-main;
+}
+.btn-err{
+  font-weight: 700;
 }
 .flex{
   display: flex;
@@ -274,25 +285,33 @@ header{
   font-weight: 900;
   font-size: 6rem;
   margin: 0;
-  opacity:.05;
+  opacity:.075;
 }
 
 //Tech section
-/*
 .tech-row{
   display: flex;
   flex-direction: column;
-  :first-child{
-    margin-top: 5em;
-  }
 }
 
  .row-title{
    letter-spacing: 10px;
    color: $text-light;
+   text-align: center;
+ }
+ .row-icons{
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   row-gap: 2em;
+   column-gap: 1em;
+   img, svg{
+     max-height: 75px;
+     fill: $text-main;
+     display: block;
+     margin: 0 auto;
+   }
  }
 
-*/
 
 
 

@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Error 404</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-
+<body class="err">
+    <p class="bigTitle">Error 404 -  The requested page does not exist</p>
+    <button class="btn btn-err" id="error-btn">Back to home</button>
+    <script type="text/javascript">
+        document.getElementById("error-btn").onclick = function () {
+            location.href = "/";
+        };
+    </script>
 </body>
 </html>

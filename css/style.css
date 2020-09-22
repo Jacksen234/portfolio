@@ -8,6 +8,7 @@ body {
   color: #0f141e;
   background: #fff;
   font-family: "proxima-nova", Montserrat, sans-serif;
+  overflow-x: hidden;
 }
 
 img {
@@ -27,6 +28,14 @@ h1, h2, p {
 .wrapper {
   width: 90%;
   margin: 0 auto;
+}
+
+.err {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .smallText {
@@ -65,6 +74,10 @@ h1, h2, p {
 .btn:active {
   color: #fff;
   background: #0f141e;
+}
+
+.btn-err {
+  font-weight: 700;
 }
 
 .flex {
@@ -302,24 +315,33 @@ header {
   font-weight: 900;
   font-size: 6rem;
   margin: 0;
-  opacity: 0.05;
+  opacity: 0.075;
 }
 
-/*
-.tech-row{
+.tech-row {
   display: flex;
   flex-direction: column;
-  :first-child{
-    margin-top: 5em;
-  }
 }
 
- .row-title{
-   letter-spacing: 10px;
-   color: $text-light;
- }
+.row-title {
+  letter-spacing: 10px;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
 
-*/
+.row-icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 2em;
+  column-gap: 1em;
+}
+.row-icons img, .row-icons svg {
+  max-height: 75px;
+  fill: #0f141e;
+  display: block;
+  margin: 0 auto;
+}
+
 @media (min-width: 800px) {
   body {
     font-size: 1.125rem;

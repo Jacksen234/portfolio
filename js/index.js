@@ -54,3 +54,13 @@ let animationScrolldown = bodymovin.loadAnimation({
     autoplay: true,
     path: 'js/scrollDown.json'
 });
+
+
+// Smooth Scroll to Projects
+
+const scrollTrigger = document.getElementById('scrolldown');
+let scrollTarget = document.getElementById(scrollTrigger.getAttribute("data-scroll-target"));
+
+scrollTrigger.addEventListener('click', () => {
+  scrollTarget.scrollIntoView({behavior: "smooth"});
+});

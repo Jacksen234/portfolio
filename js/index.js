@@ -64,3 +64,13 @@ let scrollTarget = document.getElementById(scrollTrigger.getAttribute("data-scro
 scrollTrigger.addEventListener('click', () => {
   scrollTarget.scrollIntoView({behavior: "smooth"});
 });
+
+// Side menu functionality
+
+const navItems = Array.from(document.getElementsByClassName('nav-item'));
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    let targetId = item.getAttribute('data-scroll-target');
+    document.getElementById(targetId).scrollIntoView({behavior: "smooth"});
+  });
+});

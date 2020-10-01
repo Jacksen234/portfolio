@@ -1,6 +1,7 @@
 $bg-main: #fff;
 $text-main: #0f141e;
 $text-light: rgba(0, 0, 0, 0.6);
+$very-light: rgba(15, 20, 30, .075);
 
 *{
   box-sizing: border-box;
@@ -289,26 +290,57 @@ header{
 }
 
 //Tech section
+.tech-section{
+  margin-bottom: 3em;
+}
+
 .tech-row{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-bottom: 5em;
 }
 
  .row-title{
    letter-spacing: 10px;
    color: $text-light;
    text-align: center;
+   margin-bottom: 2em;
  }
  .row-icons{
    display: grid;
+   width: 80%;
    grid-template-columns: repeat(3, 1fr);
    row-gap: 2em;
    column-gap: 1em;
    img, svg{
-     max-height: 75px;
+     max-height: 55px;
      fill: $text-main;
      display: block;
      margin: 0 auto;
+   }
+ }
+ #grid-mentions{
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   row-gap: .3em;
+   column-gap: 1em;
+   padding: 0 .2em;
+ }
+ .mention-item{
+   padding: .9em 1.8em;
+   background: $very-light;
+   text-align: center;
+   letter-spacing: 3px;
+   font-weight: 600;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   svg{
+     fill: $text-main;
+     max-height: 1.1rem !important;
+     display: none;
+     margin: 0 .5em 0 0 !important;
    }
  }
 
@@ -390,6 +422,63 @@ header{
   }
   .grid-stretch{
     grid-column: 1 / 3;
+  }
+
+  //Tech section
+  .tech-row{
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 0;
+  }
+  .row-title{
+    width: 200px;
+    margin: 0;
+  }
+  .row-icons{
+    display: flex;
+    margin: 5em 0 5em 0;
+    width: 75%;
+    position: relative;
+    svg{
+      max-height: 80px;
+    }
+  }
+  .row-icons::before, .row-icons::after{
+    content: '';
+    border: 4px solid $very-light;
+    position: absolute;
+    width: 20px;
+    height: 150%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .row-icons::before{
+    left: 0;
+    border-right: none;
+  }
+  .row-icons::after{
+    left: calc(100% - 20px);
+    border-left: none;
+  }
+
+  #grid-mentions{
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 1em;
+    column-gap: 1em;
+    padding: 0 4em;
+
+  }
+  .mention-item{
+    margin-bottom: 0;
+    svg{
+      display: inline;
+    }
+  }
+
+}
+@media (max-width: 1500px){
+  #grid-mentions{
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 /*Lol*/

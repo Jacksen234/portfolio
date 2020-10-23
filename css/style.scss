@@ -314,12 +314,17 @@ header{
    grid-template-columns: repeat(3, 1fr);
    row-gap: 2em;
    column-gap: 1em;
-   img, svg{
-     max-height: 55px;
-     fill: $text-main;
+   .svg-wrapper{
      display: block;
+     position: relative;
      margin: 0 auto;
+     >svg, >img{
+       max-height: 55px;
+       fill: $text-main;
+       pointer-events: none;
+     }
    }
+
  }
  #grid-mentions{
    display: grid;
@@ -330,6 +335,7 @@ header{
  }
  .mention-item{
    padding: .9em 1.8em;
+   position: relative;
    background: $very-light;
    text-align: center;
    letter-spacing: 3px;
@@ -337,11 +343,65 @@ header{
    display: flex;
    align-items: center;
    justify-content: center;
+   *{
+     pointer-events: none;
+   }
    svg{
      fill: $text-main;
      max-height: 1.1rem !important;
      display: none;
      margin: 0 .5em 0 0 !important;
+   }
+ }
+ //tooltips
+ .tooltip-box{
+   position: absolute;
+   display: flex;
+   width: 500px;
+   align-items: center;
+   justify-content: space-between;
+   background: $text-main;
+   padding: 1.75em 1.25em;
+   border-radius: 15px;
+   border: 4px solid #fff;
+   transform-origin: bottom;
+   top: -150%;
+   left: 50%;
+   transform: translate(-50%, -70%);
+   animation: smooth-in-tooltip 300ms;
+   pointer-events: none;
+   @keyframes smooth-in-tooltip {
+     from{opacity: 0; transform: translate(-50%, -60%)}
+     to{opacity: 1; transform: translate(-50%, -70%)}
+   }
+   @keyframes smooth-out-tooltip {
+     from{opacity: 1; transform: translate(-50%, -70%)}
+     to{opacity: 0; transform: translate(-50%, -60%)}
+   }
+   *{
+     margin: 0;
+   }
+   .tooltip-logo{
+     flex: 2;
+     fill: #fff;
+     max-height: 90px;
+     filter: brightness(0%) invert(1);
+   }
+   .tooltip-text{
+     color: #fff;
+     flex: 5;
+     letter-spacing: 0;
+     text-align: left;
+     font-weight: normal;
+     line-height: unset;
+     h5{
+       font-size: 1.5rem;
+       margin-bottom: .5em;
+     }
+     p{
+       opacity: .75;
+       line-height: 1.5;
+     }
    }
  }
 
@@ -440,8 +500,12 @@ header{
     margin: 5em 0 5em 0;
     width: 75%;
     position: relative;
-    svg{
-      max-height: 80px;
+    .svg-wrapper{
+      height: 80px;
+      >svg, >img{
+        height: 100%;
+        max-height: unset;
+      }
     }
   }
   .row-icons::before, .row-icons::after{
@@ -482,4 +546,4 @@ header{
     grid-template-columns: repeat(2, 1fr);
   }
 }
-/*Lol*/
+/*https://www.youtube.com/watch?v=OWWu05YYbNI*/

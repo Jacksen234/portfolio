@@ -74,3 +74,44 @@ navItems.forEach(item => {
     document.getElementById(targetId).scrollIntoView({behavior: "smooth"});
   });
 });
+
+//tech tooltips
+let TechSVGS = Array.from(document.getElementsByClassName('svg-wrapper'));
+let allMentionItems = Array.from(document.getElementsByClassName('mention-item'));
+let allTechSVGS = TechSVGS.concat(allMentionItems)
+allTechSVGS.forEach(item => {
+    item.onmouseover = () => showTooltip(item);
+    item.onmouseout = () => removeTooltip();
+});
+
+function showTooltip(item){
+    let tooltipTitle = item.getAttribute('data-lang');
+    let tooltipDesc = item.getAttribute('data-desc');
+    let svgFile = `${item.getAttribute('data-svg')}-01.svg`;
+    let outerBox= document.createElement('div');
+    outerBox.classList.add('tooltip-box');
+    outerBox.setAttribute('id', 'currentTooltip');
+    let logoSvg = document.createElement('img');
+    logoSvg.setAttribute('src', `img/tech-logos/${svgFile}`);
+    logoSvg.classList.add('tooltip-logo');
+    outerBox.appendChild(logoSvg);
+
+    let textBox = document.createElement('div');
+    textBox.classList.add('tooltip-text');
+    let titleElement = document.createElement('h5');
+    titleElement.innerText = tooltipTitle;
+    let descElement = document.createElement('p');
+    descElement.innerText = tooltipDesc;
+
+    textBox.appendChild(titleElement);
+    textBox.appendChild(descElement);
+    outerBox.appendChild(textBox);
+
+    item.appendChild(outerBox);
+}
+function removeTooltip(){
+    let curToolTip = document.getElementById('currentTooltip')
+    curToolTip.style.animation = "smooth-out-tooltip 300ms"
+    curToolTip.remove();
+}
+

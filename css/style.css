@@ -344,11 +344,15 @@ header {
   row-gap: 2em;
   column-gap: 1em;
 }
-.row-icons img, .row-icons svg {
+.row-icons .svg-wrapper {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+}
+.row-icons .svg-wrapper > svg, .row-icons .svg-wrapper > img {
   max-height: 55px;
   fill: #0f141e;
-  display: block;
-  margin: 0 auto;
+  pointer-events: none;
 }
 
 #grid-mentions {
@@ -361,6 +365,7 @@ header {
 
 .mention-item {
   padding: 0.9em 1.8em;
+  position: relative;
   background: rgba(15, 20, 30, 0.075);
   text-align: center;
   letter-spacing: 3px;
@@ -369,11 +374,77 @@ header {
   align-items: center;
   justify-content: center;
 }
+.mention-item * {
+  pointer-events: none;
+}
 .mention-item svg {
   fill: #0f141e;
   max-height: 1.1rem !important;
   display: none;
   margin: 0 0.5em 0 0 !important;
+}
+
+.tooltip-box {
+  position: absolute;
+  display: flex;
+  width: 500px;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f141e;
+  padding: 1.75em 1.25em;
+  border-radius: 15px;
+  border: 4px solid #fff;
+  transform-origin: bottom;
+  top: -150%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  animation: smooth-in-tooltip 300ms;
+  pointer-events: none;
+}
+@keyframes smooth-in-tooltip {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -70%);
+  }
+}
+@keyframes smooth-out-tooltip {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -70%);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+}
+.tooltip-box * {
+  margin: 0;
+}
+.tooltip-box .tooltip-logo {
+  flex: 2;
+  fill: #fff;
+  max-height: 90px;
+  filter: brightness(0%) invert(1);
+}
+.tooltip-box .tooltip-text {
+  color: #fff;
+  flex: 5;
+  letter-spacing: 0;
+  text-align: left;
+  font-weight: normal;
+  line-height: unset;
+}
+.tooltip-box .tooltip-text h5 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+}
+.tooltip-box .tooltip-text p {
+  opacity: 0.75;
+  line-height: 1.5;
 }
 
 @media (min-width: 800px) {
@@ -474,8 +545,12 @@ header {
     width: 75%;
     position: relative;
   }
-  .row-icons svg {
-    max-height: 80px;
+  .row-icons .svg-wrapper {
+    height: 80px;
+  }
+  .row-icons .svg-wrapper > svg, .row-icons .svg-wrapper > img {
+    height: 100%;
+    max-height: unset;
   }
 
   .row-icons::before, .row-icons::after {
@@ -517,6 +592,6 @@ header {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-/*Lol*/
+/*https://www.youtube.com/watch?v=OWWu05YYbNI*/
 
 /*# sourceMappingURL=style.css.map */
